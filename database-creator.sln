@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "database-creator", "database-creator/database-creator.csproj", "{6666F079-ADA3-4B07-886D-B47A5586935B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A35DDE9F-9703-4929-8C06-FDAB6BE8AFD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6666F079-ADA3-4B07-886D-B47A5586935B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6666F079-ADA3-4B07-886D-B47A5586935B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6666F079-ADA3-4B07-886D-B47A5586935B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6666F079-ADA3-4B07-886D-B47A5586935B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6666F079-ADA3-4B07-886D-B47A5586935B} = {A35DDE9F-9703-4929-8C06-FDAB6BE8AFD5}
+	EndGlobalSection
+EndGlobal
