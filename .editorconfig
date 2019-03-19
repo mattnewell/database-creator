@@ -1,0 +1,92 @@
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# editorconfig.org
+
+root = true
+
+[*]
+
+# Change these settings to your own preference
+indent_style = tab
+indent_size = 4
+
+# We recommend you to keep these unchanged
+charset = utf-8
+trim_trailing_whitespace = false
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.less]
+trim_trailing_whitespace = true
+
+[*.cs]
+insert_final_newline = false
+dotnet_style_qualification_for_field = false:suggestion
+dotnet_style_qualification_for_property = false:suggestion
+dotnet_style_qualification_for_method = false:suggestion
+dotnet_style_qualification_for_event = false:suggestion
+dotnet_style_predefined_type_for_locals_parameters_members = true
+dotnet_style_predefined_type_for_member_access = true
+dotnet_style_object_initializer = true
+dotnet_style_collection_initializer = true
+dotnet_style_explicit_tuple_names = true:suggestion
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+csharp_style_var_for_built_in_types = true
+csharp_style_var_when_type_is_apparent = true
+csharp_style_var_elsewhere = true
+csharp_style_expression_bodied_methods = false:suggestion
+csharp_style_expression_bodied_constructors = false:suggestion
+csharp_style_expression_bodied_operators = false:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_style_expression_bodied_indexers = true:suggestion
+csharp_style_expression_bodied_accessors = true:suggestion
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+csharp_style_inlined_variable_declaration = true:suggestion
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:suggestion
+type_declaration_braces = next_line
+invocable_declaration_braces = end_of_line
+anonymous_method_declaration_braces = end_of_line
+accessor_owner_declaration_braces = end_of_line
+accessor_declaration_braces = end_of_line
+case_block_braces = end_of_line
+initializer_braces = end_of_line
+other_braces = end_of_line
+empty_block_style = multiline
+indent_switch_labels = true
+indent_nested_usings_stmt = false
+indent_nested_fixed_stmt = true
+indent_nested_lock_stmt = true
+indent_nested_for_stmt = true
+indent_nested_foreach_stmt = true
+indent_nested_while_stmt = true
+indent_type_constraints = true
+stick_comment = true
+indent_method_decl_pars = inside
+indent_invocation_pars = inside
+indent_statement_pars = inside
+indent_typeparam_angles = inside
+indent_typearg_angles = inside
+indent_pars = inside
+align_multiline_parameter = false
+align_first_arg_by_paren = false
+align_multiline_argument = false
+align_multiline_extends_list = true
+align_multiline_expression = false
+align_multiline_binary_expressions_chain = false
+align_multiline_calls_chain = false
+align_multiline_array_and_object_initializer = false
+indent_anonymous_method_block = false
+align_multiline_for_stmt = true
+align_multiple_declaration = true
+align_multline_type_parameter_list = true
+align_multline_type_parameter_constrains = true
+align_linq_query = true
+special_else_if_treatment = true
+
+[*.yaml]
+indent_style = space
