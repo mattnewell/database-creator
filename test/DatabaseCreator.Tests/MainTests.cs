@@ -1,3 +1,4 @@
+using Microsoft.Rest;
 using Moq;
 using Xunit;
 
@@ -31,6 +32,7 @@ namespace DatabaseCreator.Tests
 				Namespace = NamespaceValue
 			};
 
+			secretClient.Setup(x => x.Read(Customer + "-database-secret", NamespaceValue)).Throws<HttpOperationException>();
 			secretClient.Setup(x => x.Read(CommandLineOptions.DefaultMasterSecretName, NamespaceValue)).Returns(MasterConnectionString);
 			var main = new Main(options, secretClient.Object, sqlClient.Object);
 			return main;
@@ -47,6 +49,20 @@ namespace DatabaseCreator.Tests
 			
 			sqlClient.Verify(x => x.BuildConnectionString(It.IsAny<DatabaseSpecification>()));
 			secretClient.Verify(x => x.Create(customerSecretName, NamespaceValue, It.IsAny<string>()));
+		}
+
+		[Fact]
+		public void return_immediately_when_secret_exists() {
+			const string customerSecretName = Customer + "-database-secret";
+			var sqlClient = new Mock<ISqlClient>();
+			var secretClient = new Mock<IDatabaseSecretClient>();
+			var main = SetupMain(sqlClient, secretClient);
+
+			secretClient.Setup(x => x.Read(customerSecretName, NamespaceValue)).Returns("Some=String");
+			
+			main.Run();
+			sqlClient.VerifyNoOtherCalls();
+			
 		}
 	}
 }

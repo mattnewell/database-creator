@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 
 namespace DatabaseCreator
@@ -17,6 +18,14 @@ namespace DatabaseCreator
 
 		public void Run() {
 			//TODO: Validate options
+			var customerSecretName = string.Format(CustomerSecretTemplate, options.CustomerName);
+			try {
+				secretClient.Read(customerSecretName, options.Namespace);
+				Console.WriteLine("Existing secret found. Exit: Success");
+				return;
+			} catch {
+				Console.WriteLine("No existing secret found. Continuing.");
+			}
 			var masterConnectionString = secretClient.Read(options.MasterSecretName, options.Namespace);
 			var spec = new DatabaseSpecification {
 				MasterConnectionString = masterConnectionString,
@@ -24,9 +33,10 @@ namespace DatabaseCreator
 				Password = PasswordGenerator.GetRandomString(32)
 			};
 			sqlClient.CreateDatabase(spec);
+			Console.WriteLine($"Created database: {spec.Name}");
 			var customerConnectionString = sqlClient.BuildConnectionString(spec);
-			secretClient.Create(string.Format(CustomerSecretTemplate, options.CustomerName), options.Namespace, 
-				customerConnectionString);
+			secretClient.Create(customerSecretName, options.Namespace, customerConnectionString);
+			Console.WriteLine($"Created secret: {customerSecretName}");
 		}
 	}
 }

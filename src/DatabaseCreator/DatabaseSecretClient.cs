@@ -28,11 +28,6 @@ namespace DatabaseCreator
 		}
 
 		public void Create(string name, string namespaceParameter, string stringValue) {
-			try {
-				client.DeleteNamespacedSecret(new V1DeleteOptions(), name, namespaceParameter);
-			} catch {
-				Console.WriteLine("No existing secret");
-			}
 			var customerSecret = new V1Secret {
 				Metadata = new V1ObjectMeta {
 					Name = name
